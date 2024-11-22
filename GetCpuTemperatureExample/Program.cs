@@ -2,10 +2,12 @@
 
 while (true)
 {
-    UpdateVisitor updateVisitor = new();
-    Computer computer = new();
+    var updateVisitor = new UpdateVisitor();
+    var computer = new Computer
+    {
+        IsCpuEnabled = true
+    };
     computer.Open();
-    computer.IsCpuEnabled = true;
     computer.Accept(updateVisitor);
     foreach (var hardware in computer.Hardware)
     {
